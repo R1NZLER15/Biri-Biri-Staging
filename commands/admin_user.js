@@ -56,7 +56,7 @@ exports.getCommands = (clients) => {
         }
 
         let action = (maybeAction === 'activar') ? 'activado' : 'desactivado'
-        action === 'activado' ? command.enableUser(msg) : command.disableUser(msg)
+        action === 'activado' ? command.enableUser(msg,id) : command.disableUser(msg,id)
         
         return send(msg, `Comando ${command.name} ${action} para el usuario ${maybeUser}`)
     }

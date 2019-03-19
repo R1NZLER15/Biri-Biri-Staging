@@ -7,10 +7,12 @@ exports.getCommands = (clients) => {
     new CustomCommand({
       'name': 'dev',
       'execute': (msg) => {
+        utils.startTyping(msg)
         let sugestion = utils.getMessage(msg)
         let replyMessage = new message.BaseMessage(msg)
         if(utils.isEmpty(sugestion)) {
           replyMessage.setTitle('Tienes que darnos un mensaje, pendejo')
+          utils.stopTyping(msg)
         } else {
           let ts = new Date().toISOString();
           let content = `@${msg.author.username}(${msg.author.id})[${ts}]`
@@ -19,6 +21,7 @@ exports.getCommands = (clients) => {
           replyMessage.setTitle('Gracias, lo tomaremos en cuenta')
         }
         msg.channel.send(replyMessage)
+        utils.stopTyping(msg)
       }
     })
   ]

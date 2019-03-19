@@ -16,7 +16,7 @@ class Database {
   }
 
   lastSunday() {
-    return moment().tz("America/Mexico_City").startOf('week').format()
+    return moment().tz("America/Mexico_City").startOf('week').format('YYYY-MM-DD')
   }  
 
   async getReclamo(term) {

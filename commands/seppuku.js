@@ -29,7 +29,6 @@ class MuteCommand extends CustomCommand {
             msg.channel.send(reply)
             return
         }
-
         // Do not allow users to report more than once every 10 minutes per server
         if(this.userReports[reporter] === undefined) this.userReports[reporter] = []
         if(this.userReports[reporter].every( (v,i,a) => ( v.time + mutePeriod < Date.now() || v.server !== server ) )) {
@@ -47,7 +46,7 @@ class MuteCommand extends CustomCommand {
             }, 0);
 
 
-            let imagenes = ["https://media1.tenor.com/images/b25511087b27597960f77dd0dbaf568d/tenor.gif","https://media.giphy.com/media/yjGdFXbm8KpXF5Xqco/giphy.gif","https://media.giphy.com/media/c6DIpCp1922KQ/giphy.gif","https://media.giphy.com/media/zqdbOacOP9Djy/giphy.gif"]
+            let imagenes = ["https://media1.tenor.com/images/b25511087b27597960f77dd0dbaf568d/tenor.gif","https://media.giphy.com/media/yjGdFXbm8KpXF5Xqco/giphy.gif","https://media.giphy.com/media/c6DIpCp1922KQ/giphy.gif","https://media.giphy.com/media/zqdbOacOP9Djy/giphy.gif","https://media1.tenor.com/images/341dad126b09ee3204b74612b8a74017/tenor.gif","https://media.giphy.com/media/129FklkXsetHl6/giphy.gif","https://media.giphy.com/media/vkwAeqMEUSaoU/giphy.gif","https://media.giphy.com/media/12ttoBXEqixfmo/giphy.gif","https://media.giphy.com/media/3oEjI4Kahhc47OSdOw/giphy.gif","https://media.giphy.com/media/BgVwNombFusbC/giphy.gif","https://media.giphy.com/media/26tPughh56URCl2og/giphy.gif"]
 
             let randomImageCalculator = Math.floor(Math.random()*imagenes.length);
 

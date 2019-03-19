@@ -112,6 +112,7 @@ exports.getCommands = (clients) => {
       'name': 'lovecalc',
       'mention': 2,
       'execute': (msg) => {
+        utils.startTyping(msg)
         let mention1 = msg.mentions.members.first().user.username
         let mention2 = msg.mentions.members.last().user.username
         let replyMessage = new message.BaseMessage(msg)
@@ -119,6 +120,7 @@ exports.getCommands = (clients) => {
           let calculado = Math.floor(Math.random() * 101)
           replyMessage.setTitle('❤ Calculador de Amor ❤')
           replyMessage.addField(`El amor entre ${mention1} y ${mention2} es de`, `${calculado}%`)
+          utils.stopTyping(msg)
         }
         else {
           replyMessage.setTitle('Forever alone </3')
@@ -130,25 +132,30 @@ exports.getCommands = (clients) => {
     new CustomCommand({
       'name': 'ping',
       'execute': (msg) => {
+        utils.startTyping(msg)
         latency = new Date().getTime() - msg.createdTimestamp
         let title = latency + ' ms'
         let replyMessage = new message.BaseMessage(msg)
         replyMessage.setTitle(title)
         msg.channel.send(replyMessage)
+        utils.stopTyping(msg)
       }
     }),
 
     new CustomCommand({
       'name': 'rate',
       'execute': (msg) => {
+        utils.startTyping(msg)
         let replyMessage = new message.BaseMessage(msg)
         if(msg.content.split(' ').length >= 2) {
           let restMessage = utils.getMessage(msg)
           let calculado = Math.floor(Math.random() * 101)
           let title = `La puntuacion de **${restMessage}** es de **${calculado}**/100`
           replyMessage.setTitle(title)
+          utils.stopTyping(msg)
         } else {
           replyMessage.setTitle('Se debe meter algo a alguien para ratear, pendejo')
+          utils.stopTyping(msg)
         }
         msg.channel.send(replyMessage)
       }
@@ -158,14 +165,17 @@ exports.getCommands = (clients) => {
       'name': 'avatar',
       'execute': (msg) => {
         var avatar
+        utils.startTyping(msg)
         if(utils.hasMention(msg))
           avatar = msg.mentions.members.first().user.avatarURL
         else
           avatar = msg.author.avatarURL
         if(utils.isEmpty(avatar)) {
           msg.channel.send(new message.BaseMessage(msg).setTitle('Usuario sin avatar'))
+          utils.stopTyping(msg)
         } else {
           msg.channel.send(new message.BaseMessage(msg).setImage(avatar))
+          utils.stopTyping(msg)
         }
       }
     }),
@@ -211,10 +221,12 @@ exports.getCommands = (clients) => {
     new CustomCommand({
       'name': 'f',
       'execute': (msg) => {
+        utils.startTyping(msg)
         let mensaje = utils.getMessage(msg)
         let author = utils.getAuthor(msg)
         let description = `**${author}** ha dado sus respetos por ${mensaje} <:sad:403381288188510210>`
         msg.channel.send((new message.BaseMessage(msg)).setDescription(description))
+        utils.stopTyping(msg)
       }
     }),
 
