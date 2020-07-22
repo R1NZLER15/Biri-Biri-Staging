@@ -11,7 +11,7 @@ exports.getCommands = (clients) => {
         let has_manage    = msg.member.permissions.has("MANAGE_MESSAGES") // Check if the user has Manage Messages
         
         // Check if a member has a specific permission on the guild!
-        if (!has_admin || !has_manage || msg.author.id !== `274159725967572992`){
+        if (!has_admin || !has_manage){
           return send(msg, 'Necesitas ser un admin, pendejo')
         }
 

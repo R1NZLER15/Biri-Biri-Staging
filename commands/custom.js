@@ -1,6 +1,5 @@
 const CustomCommand = require('../core/command.js').CustomCommand
 const utils = require('../core/utils.js')
-let stats = require('fire-emblem-heroes-stats')
 const message = require('../core/message.js');
 let ascii = require('asciify');
 
@@ -11,16 +10,23 @@ exports.getCommands = (clients) => {
     'execute': async (msg) => {
         let searchTerm = utils.getMessage(msg)
         if(utils.isEmpty(searchTerm)) {
-          utils.sendText(msg, 'Aber pendejo, necesito un termino')
+          utils.sendText(msg, 'Aber pendejo, necesito algo para buscar')
           return
         }
         const Searcher = new clients.pornsearch()
         let videos = await Searcher.videos()
+        let count = videos.length;
+        let ad = Math.floor(Math.random() * count) + 1
+
         if(videos === undefined || videos.length === 0) {
-          utils.sendText(msg, `No terminos encontrados para "${searchTerm}"`)
+          utils.sendText(msg, `No encontre nada para "${searchTerm}"`)
         } else {
-          msg.channel.send(`Titulo: ${videos[0].title}`)
-          msg.channel.send(`Url: ${videos[0].url}`);
+          let reply = new message.BaseMessage(msg)
+          reply.setTitle(`Resultado para ${searchTerm}`)
+          reply.addField("Titulo: ",`${videos[ad].title}`,true)
+          reply.addField("URL", `${videos[ad].url}`,true)
+          reply.setColor(0x74D92D)
+          msg.channel.send(reply)
         }
     }
   }),
@@ -33,25 +39,10 @@ exports.getCommands = (clients) => {
         utils.sendText(msg, 'Aber pendejo, dame algo para dibujar')
         return
       }
-
     let codigo = "```"
     ascii(searchTerm,{font:'standard'},function(err,res){
       msg.channel.send(`${codigo}${res}${codigo}`);
     });
-    }
-  }),
-
-  new CustomCommand({
-    'name': 'hero',
-    'execute' : async (msg) =>{
-      let searchTerm = utils.getMessage(msg)
-      if(utils.isEmpty(searchTerm)){
-        utils.sendText(msg, 'Aber pendejo, dame algo para buscar')
-        return
-      }
-      let info = stats.getHero(`${searchTerm}`)
-      let name = info.name;
-      msg.channel.send(`${name}`)
     }
   }),
 
@@ -93,7 +84,8 @@ exports.getCommands = (clients) => {
       reply.setTitle(`Información de ${user.username}`, true)
       reply.addField(`Nombre Completo:`, user.tag, true)
       reply.addField(`Nickname:`, user.username, true)
-      reply.addField("Se unió a discord el: ", utils.formatDate(join),true)
+      reply.addField("Se unió a discord el: ", utils.formatDate(join), true)
+      reply.addField(`Status:`, user.presence.status, true)
       msg.channel.send(reply)
     }
   }),
@@ -112,6 +104,21 @@ exports.getCommands = (clients) => {
   }),
 
   new CustomCommand({
+    'name': 'textgif',
+    'execute' : async (msg) =>{
+      let gifWord = utils.getMessage(msg);
+      msg.delete()
+      if(utils.isEmpty(gifWord)) {
+        utils.sendText(msg, 'Aber pendejo, dame algo para escribir')
+        return
+      }
+      let finalWord = utils.makeGifWord(gifWord)
+      let codigo = "```"
+      msg.channel.send(`${codigo}${finalWord}${codigo}`);
+    }
+  }),
+
+  new CustomCommand({
     'name': 'joto',
     'execute': msg => {
       msg.delete()
@@ -120,9 +127,9 @@ exports.getCommands = (clients) => {
         time: 300000,
         errors: ['time'],
       }).then((collected) => {
-        msg.channel.send(`**${collected.first().author.username}** es joto <:pacman:420980551105642516>`);
+        msg.channel.send(`**${collected.first().author.username}** es joto <:pacman:588510632471429139>`);
       }).catch(() => {
-        msg.channel.send('Nadie escribió nada :c')
+        msg.channel.send('Nadie escribió nada :c');
       })
     }
   }),

@@ -1,4 +1,5 @@
 const CustomCommand = require('../core/command.js').CustomCommand
+const utils = require('../core/utils.js')
 function memeCreator(top, bottom, pic){
   top = top || "";
   bottom = bottom || "";
@@ -26,6 +27,7 @@ exports.getCommands = (clients) => {
       var pic = mAvatarURL.replace(".png?size=2048", ".png")
       var chop = msg.content.split('>')
       var pichula = chop[1].split('|')
+      // TODO: Revisar el handler de no texto;¿
       msg.channel.send({'files': [memeCreator(pichula[0], pichula[1], pic)]});
     }
   })]

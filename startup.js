@@ -25,6 +25,54 @@ exports.startup = function(bot){
 	  console.log("")
   });
 
+  bot.on('error', console.error);
+
+  bot.on('message', (msg) => {
+		if (msg.content == "n!globalinfo") {
+			const utils = require('./core/utils.js')
+			msg.channel.send({embed: {
+				color: 3447003,
+				author: {
+					name: bot.user.username,
+					icon_url: bot.user.avatarURL
+				},
+				title: "Informacion del bot",
+				fields: [{
+						name: "Cantidad de servidores",
+						value: `${bot.guilds.size}`,
+						inline: true
+					},
+					{
+						name: "Cantidad de usuarios",
+						value: `${bot.users.size}`,
+						inline: true
+					},
+					{
+						name: "Voice Chats",
+						value: `${bot.channels.size}`,
+						inline: true
+					},
+					{
+						name: "Cantidad de Emojis",
+						value: `${bot.emojis.size}`,
+						inline: true
+					},
+					{
+						name: "Websocket",
+						value: `${bot.ping} ms ❤`,
+						inline: true
+					},
+					{
+						name: "Uptime",
+						value: utils.msToTime(bot.uptime),
+						inline: true
+					}
+				]
+			}
+		});
+		}
+	});
+
 	bot.on('guildMemberAdd',(gm) => {
 	    const channel = getDefaultChannel(gm.guild)
 	    if(channel === undefined || channel === null) return
