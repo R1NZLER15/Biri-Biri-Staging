@@ -7,7 +7,6 @@ exports.getCommands = (clients) => {
     new CustomCommand({
       'name': 'ship',
       'execute': (msg) => {
-        utils.startTyping(msg)
         let mention1 = msg.mentions.members.first().user.username
         let mention2 = msg.mentions.members.last().user.username
         let title = `${mention1} + ${mention2} = ${combinename(mention1, mention2)}`
@@ -15,7 +14,6 @@ exports.getCommands = (clients) => {
         replyMessage.setTitle(title)
         // TODO: Add image: avatar1, heart, avatar2
         msg.channel.send(replyMessage)
-        utils.startTyping(msg)
       }
     })
   ]

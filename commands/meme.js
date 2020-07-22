@@ -28,10 +28,7 @@ exports.getCommands = (clients) => {
       var chop = msg.content.split('>')
       var pichula = chop[1].split('|')
       // TODO: Revisar el handler de no texto;¿
-      //utils.startTyping(msg);
       msg.channel.send({'files': [memeCreator(pichula[0], pichula[1], pic)]});
-      /*.then(msg => {
-      utils.stopTyping(msg)});*/
     }
   })]
 }
