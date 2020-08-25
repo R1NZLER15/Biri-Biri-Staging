@@ -57,7 +57,8 @@ exports.startup = function(bot){
 
 	bot.on('guildMemberAdd', (gm) => {
       try {
-	     gm.send(`Bienvenido <@${gm.id}> <:vohiyo:412474913883160577>`);
+	     console.log(`added user<@${gm.id}>`);
+	     //gm.send(`Bienvenido <@${gm.id}> <:vohiyo:412474913883160577>`);
       } catch(err) {
         console.log(err)
       }
