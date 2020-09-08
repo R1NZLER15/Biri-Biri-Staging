@@ -179,6 +179,19 @@
       "%(mention)s, te esta poniendo una putiza %(author)s"
     ]
   },
+  "apalear": {
+    "images": [
+      "https://3.bp.blogspot.com/-W7jNMrS3Y9I/UmgG1hARN5I/AAAAAAAAAAs/ZXTgBoiFNaU/s1600/jl9c.gif",
+      "https://i.gifer.com/Qn33.mp4",
+      "https://64.media.tumblr.com/tumblr_m8fko2TW4n1qdlh1io1_400.gif",
+      "https://i.pinimg.com/originals/37/99/5f/37995f3d0d1a005018e89bfba08b6fd5.gif",
+      "https://media1.tenor.com/images/102424ba0ec464ec2bf8ab7e2f96f3e8/tenor.gif"
+    ],
+    "texts": [
+      "%(mention)s, te esta apaleando %(author)s",
+      "%(mention)s te ha apaleado %(author)s"
+    ]
+  },
   "lavarmanos": {
     "images": [
       "https://k61.kn3.net/taringa/2/2/D/6/E/7/vagonettas/BBA.gif",

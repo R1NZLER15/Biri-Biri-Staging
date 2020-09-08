@@ -64,6 +64,13 @@ exports.getCommands = (clients) => {
     }),
 
     new MentionImageTitleCommand({
+      'name': 'apalear',
+      'selfError': 'No te puedes apalear a ti mismo, pendejo!',
+      'image': config.apalear.images,
+      'title': config.apalear.texts
+    }),
+
+    new MentionImageTitleCommand({
       'name': 'putear',
       'alias': ['putiar','putiza'],
       'selfError': 'No te puedes putear a ti mismo, pendejo',
@@ -202,7 +209,7 @@ exports.getCommands = (clients) => {
         let response = await clients.request(params)
         return `https://random.birb.pw/img/${response.file}`
       },
-      'title': '%(author)s fue pajaredo!!!!!'
+      'title': '%(author)s fue pajareado!'
     }),
 
     new ImageTitleCommand({
