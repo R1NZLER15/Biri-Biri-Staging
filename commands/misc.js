@@ -187,10 +187,14 @@ exports.getCommands = (clients) => {
       'name': 'avatar',
       'execute': (msg) => {
         var avatar
-        if(utils.hasMention(msg))
-          avatar = msg.mentions.members.first().user.avatarURL()
-        else
-          avatar = msg.author.avatarURL()
+        if(utils.hasMention(msg)){
+          let avatarUrl = msg.mentions.members.first().user.avatarURL()
+          avatar = utils.changeExtension(avatarUrl)
+        }
+        else {
+          let avatarUrl = msg.author.avatarURL()
+          avatar = utils.changeExtension(avatarUrl)
+        }
         if(utils.isEmpty(avatar)) {
           msg.channel.send(new message.BaseMessage(msg).setTitle('Usuario sin avatar'));
         } else {
