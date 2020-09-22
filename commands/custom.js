@@ -52,7 +52,7 @@ exports.getCommands = (clients) => {
       let reply = new message.BaseMessage(msg)
         reply.setTitle(`🎉🎉 Invitación / Invite 🎉🎉`)
         reply.setThumbnail("https://cdn.discordapp.com/avatars/429093104474128394/916faa4c27db28be1d3a5171398ca4d0.png")
-        reply.setDescription("Haz click [Aqui](https://discordapp.com/oauth2/authorize?client_id=429093104474128394&scope=bot&permissions=8), para invitarme a tu servidor!")
+        reply.setDescription("Haz click [Aqui](https://discord.com/oauth2/authorize?client_id=429093104474128394&scope=bot&permissions=8), para invitarme a tu servidor!")
         reply.setColor(0x74DF00)
         msg.channel.send(reply)
     }
@@ -80,7 +80,7 @@ exports.getCommands = (clients) => {
 
       let reply = new message.BaseMessage(msg)
       reply.setColor(0x74DF00)
-      reply.setThumbnail(user.avatarURL)
+      reply.setThumbnail(user.avatarURL())
       reply.setTitle(`Información de ${user.username}`, true)
       reply.addField(`Nombre Completo:`, user.tag, true)
       reply.addField(`Nickname:`, user.username, true)

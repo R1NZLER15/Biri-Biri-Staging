@@ -21,31 +21,6 @@
          "holo": "**%(author)s** te está alimentando **%(mention)s**"
       }
    },
-   "cuteapi":{
-      "types": [
-         {"name": "cry", "title": "%(author)s esta llorando"},
-         {"name": "pinch", "title": "%(author)s te esta pelliscando"},
-         {"name": "poke", "title": "%(author)s te esta tocando"},
-         {"name": "highfive", "title": "%(author)s quiere que le des cinco"},
-         {"name": "nani", "title": "Nani!"},
-         {"name": "punch", "title": "%(author)s te dio un golpe"},
-         {"name": "hug", "title": "%(author)s se siente abrazable"},
-         {"name": "nom", "title": "%(author)s se siente con hambre"},
-         {"name": "woop", "title": "%(author)s se siente mordelon"},
-         {"name": "cuddle", "title": "%(author)s te esta abrazando"},
-         {"name": "tickle", "title": "%(author)s te esta haciendo cosquillas"},
-         {"name": "slap", "title": "%(author)s te esta cacheteando"},
-         {"name": "smug", "title": "%(author)s esta engreido"},
-         {"name": "sleep", "title": "%(author)s se esta durmiendo"},
-         {"name": "pat", "title": "%(author)s te esta dando una palmadita"},
-         {"name": "lick", "title": "%(author)s te esta lamiendo"},
-         {"name": "kiss", "title": "%(author)s esta besando"},
-         {"name": "neko", "title": "%(author)s se siente un nekito kawaii uwu"},
-         {"name": "dancing", "title": "%(author)s esta bailando"},
-         {"name": "meme", "title": "%(author)s esta memeando"},
-         {"name": "loli", "title": "%(author)s ha enviado una loli"}
-      ]
-   },
   "dab": {
     "images": [
       "https://cdn.weeb.sh/images/S1TQsg1c-.jpeg",
@@ -179,7 +154,6 @@
       "https://cdn.discordapp.com/attachments/422831676155232267/455389362134450177/unnamed_3.gif",
       "https://cdn.discordapp.com/attachments/422831676155232267/455389419231379486/1482958306_16e0bd444240f2b7bd0312a67f6af211.gif",
       "https://cdn.discordapp.com/attachments/422831676155232267/455389421198508042/aa2.gif",
-      "https://media.discordapp.net/attachments/468929183150768131/493138611722518529/1e1083b7-e53b-4a1d-8f61-d5bb4c2bd8cb.gif",
       "https://cdn.discordapp.com/attachments/430562204979429377/556252568678825994/shinoJail.gif"
     ],
     "texts": [
@@ -203,6 +177,19 @@
     "texts": [
       "%(mention)s, te esta puteando %(author)s",
       "%(mention)s, te esta poniendo una putiza %(author)s"
+    ]
+  },
+  "apalear": {
+    "images": [
+      "https://3.bp.blogspot.com/-W7jNMrS3Y9I/UmgG1hARN5I/AAAAAAAAAAs/ZXTgBoiFNaU/s1600/jl9c.gif",
+      "https://i.gifer.com/Qn33.mp4",
+      "https://64.media.tumblr.com/tumblr_m8fko2TW4n1qdlh1io1_400.gif",
+      "https://i.pinimg.com/originals/37/99/5f/37995f3d0d1a005018e89bfba08b6fd5.gif",
+      "https://media1.tenor.com/images/102424ba0ec464ec2bf8ab7e2f96f3e8/tenor.gif"
+    ],
+    "texts": [
+      "%(mention)s, te esta apaleando %(author)s",
+      "%(mention)s te ha apaleado %(author)s"
     ]
   },
   "lavarmanos": {

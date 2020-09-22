@@ -15,7 +15,7 @@ class MuteCommand extends CustomCommand {
         const reporter    = msg.author.id;                                // Who is reporting
         const server      = msg.guild.id;                                 // Where are they reporting
         const time        = Date.now();                                   // Time of the report
-        const muteRole    = msg.guild.roles.find('name','Muted');         // Look for the muted role
+        const muteRole    = msg.guild.roles.cache.find(role => role.name === 'Muted');         // Look for the muted role
 
         /* -----------------------------------------------------------------
           Considerations:
@@ -71,7 +71,7 @@ class MuteCommand extends CustomCommand {
 
                 // Via Roles ---------- ADD ------------
                 if(muteRole)
-                    msg.member.addRole(muteRole.id)
+                    msg.member.roles.add(muteRole.id)
                         .catch(console.error);
                 // -------------------------------------
 
@@ -99,7 +99,7 @@ class MuteCommand extends CustomCommand {
 
                     // Via Roles -------- REMOVE -----------
                     if(args.muteRole)
-                        args.member.removeRole(args.muteRole.id)
+                        args.member.roles.remove(args.muteRole.id)
                             .catch(console.error);
                     // -------------------------------------
 

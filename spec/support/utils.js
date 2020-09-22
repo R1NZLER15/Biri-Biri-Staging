@@ -38,9 +38,6 @@ exports.makeFakeClients = () => {
       }
     },
     'cooldown': (_) => undefined,
-    'cuteapi': {
-      'getJSON': (type, nsfw) => ({'url': `https://cuteapi/${type}.png`})
-    },
     'trello': {},
     'neko': {
       'getSFWPat': () => { return { 'url': 'https://neko.com/Pat.png'}},
@@ -59,7 +56,6 @@ exports.makeFakeClients = () => {
       'getSFWHolo': () => { return { 'url': 'https://neko.com/Holo.png'}}
   },
     'request': {},
-    'dogstatsd': {'increment': () => {}},
     'cooldown': {},
     'pornsearch': {},
   }

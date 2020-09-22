@@ -64,6 +64,13 @@ exports.getCommands = (clients) => {
     }),
 
     new MentionImageTitleCommand({
+      'name': 'apalear',
+      'selfError': 'No te puedes apalear a ti mismo, pendejo!',
+      'image': config.apalear.images,
+      'title': config.apalear.texts
+    }),
+
+    new MentionImageTitleCommand({
       'name': 'putear',
       'alias': ['putiar','putiza'],
       'selfError': 'No te puedes putear a ti mismo, pendejo',
@@ -180,10 +187,14 @@ exports.getCommands = (clients) => {
       'name': 'avatar',
       'execute': (msg) => {
         var avatar
-        if(utils.hasMention(msg))
-          avatar = msg.mentions.members.first().user.avatarURL
-        else
-          avatar = msg.author.avatarURL
+        if(utils.hasMention(msg)){
+          let avatarUrl = msg.mentions.members.first().user.avatarURL()
+          avatar = utils.changeExtension(avatarUrl)
+        }
+        else {
+          let avatarUrl = msg.author.avatarURL()
+          avatar = utils.changeExtension(avatarUrl)
+        }
         if(utils.isEmpty(avatar)) {
           msg.channel.send(new message.BaseMessage(msg).setTitle('Usuario sin avatar'));
         } else {
@@ -196,13 +207,13 @@ exports.getCommands = (clients) => {
       'name': 'birb',
       'image': async () => {
         let params = {
-          'url': 'https://random.birb.pw/tweet.json/',
+          'url': 'https://random.birb.pw/tweet.json',
           'json': true
         }
         let response = await clients.request(params)
         return `https://random.birb.pw/img/${response.file}`
       },
-      'title': '%(author)s fue pajaredo!!!!!'
+      'title': '%(author)s fue pajareado!'
     }),
 
     new ImageTitleCommand({

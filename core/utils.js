@@ -37,6 +37,17 @@ function randomColors() {
   return color = getRandom(colors)
 }
 
+function changeExtension(url) {
+  var url
+  if (url.includes('a_')){
+    url = url.substr(0, url.lastIndexOf('.')) || url;
+    return x = url + '.gif?size=1024'
+  } else {
+    url = url.substr(0, url.lastIndexOf('.')) || url;
+    return x = url + '.png?size=1024'
+  }
+}
+
 function removeExtraFromId (data){
   let remove = data.replace("<","");
   let remove1 = remove.replace(">","");
@@ -96,6 +107,7 @@ function makeGifWord(text) {
   return finalWord
 }
 
+exports.changeExtension = changeExtension
 exports.msToTime = msToTime
 exports.isEmpty = isEmpty
 exports.getAuthor = getAuthor
