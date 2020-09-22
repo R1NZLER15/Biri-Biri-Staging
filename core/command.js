@@ -49,8 +49,8 @@ class Command {
   }
 
   onDisable(msg) {
-    msg.delete(3000);
-    return msg.channel.send("Este comando esta deshabilitado!").then(msg =>{msg.delete(4000)});
+    msg.delete({timeout: 3000});
+    return msg.channel.send("Este comando esta deshabilitado!").then(msg =>{msg.delete({timeout: 4000})});
   }
 
   isPaused(msg) {

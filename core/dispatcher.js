@@ -40,9 +40,6 @@ class Dispatcher {
   }
 
   async dispatch(msg) {
-    let tags = {'channel': msg.channel.name, 'type': msg.channel.type, 'guild': msg.guild.name}
-    this.clients.dogstatsd.increment('discord.message', 1, tags)
-
     // Are you muted?
     if(this.getCommandByName('mute').checkMuted(msg)) {
       msg.delete()

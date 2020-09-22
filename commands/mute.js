@@ -15,7 +15,7 @@ class MuteCommand extends CustomCommand {
         const reporter    = msg.author.id;                                // Who is reporting
         const server      = msg.guild.id;                                 // Where are they reporting
         const time        = Date.now();                                   // Time of the report
-        const muteRole    = msg.guild.roles.find('name','Muted');         // Look for the muted role
+        const muteRole    = msg.guild.roles.cache.find(role => role.name === 'Muted');         // Look for the muted role
         let has_admin     = msg.member.permissions.has("ADMINISTRATOR")   // Check if the user has admin
         let has_manage    = msg.member.permissions.has("MANAGE_MESSAGES") // Check if the user has Manage Messages
         
@@ -63,7 +63,7 @@ class MuteCommand extends CustomCommand {
 
             // Via Roles ---------- ADD ------------
             if(muteRole)
-              msg.member.addRole(muteRole.id)
+              msg.member.roles.add(muteRole.id)
                 .then(console.log)
                 .catch(console.error);
             // -------------------------------------
@@ -109,6 +109,14 @@ class MuteCommand extends CustomCommand {
   }
 
   checkMuted(msg) {
+    if(msg.author === null) {
+      console.log(`null author ${msg.id}`)
+      return false
+    }
+    if(msg.guild === null) {
+      console.log(`null guild ${msg.id}`)
+      return false
+    }
     return (this.mutedUsers.get(msg.author.id) || []).indexOf(msg.guild.id) > -1;
   }
 }

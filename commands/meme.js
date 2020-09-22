@@ -23,7 +23,7 @@ exports.getCommands = (clients) => {
     'mentions': 1,
     'execute': (msg) => {
       var mentioned = msg.mentions.users.first()
-      var mAvatarURL = mentioned.displayAvatarURL
+      var mAvatarURL = mentioned.displayAvatarURL()
       var pic = mAvatarURL.replace(".png?size=2048", ".png")
       var chop = msg.content.split('>')
       var pichula = chop[1].split('|')

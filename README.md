@@ -21,7 +21,7 @@ Agradecimientos a:
 ## Caracteristicas:
 
 **Reacciones:** 
-* Cute-Api - Neko.js -  Reacciones a Pedido *Revisar misc.js para la lista de emociones completa*
+* Neko.js -  Reacciones a Pedido *Revisar misc.js para la lista de emociones completa*
 * Hacer un Meme con el Avatar de un Usuario
 * Comandos NSFW (+18) (Busqueda de Videos e Imagenes)
 * Comando de Shippeo entre dos Usuarios

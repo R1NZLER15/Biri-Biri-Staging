@@ -15,14 +15,6 @@ if(env === 'production') {
   console.timeEnd('SENTRY')
 }
 
-/* Workarround for shards disconnections */
-
-setTimeout(() => {
-  bot.ws.connection.triggerReady()
-},30000)
-
-/* End */
-
 console.time('discord')
 const Discord = require('discord.js')
 const bot = new Discord.Client({autoReconnect: true, max_message_cache: 0})
@@ -62,7 +54,6 @@ dispatcher.add('../commands/admin_user.js')
 dispatcher.add('../commands/changelog.js')
 dispatcher.add('../commands/custom.js')
 dispatcher.add('../commands/api_calls.js')
-dispatcher.add('../commands/cute.js')
 dispatcher.add('../commands/help.js')
 dispatcher.add('../commands/meme.js')
 dispatcher.add('../commands/misc.js')
@@ -76,12 +67,4 @@ dispatcher.add('../commands/sauce.js')
 dispatcher.register()
 console.timeEnd('dispatcher')
 
-// Emmit bot metrics every 10 seconds
-console.time('datadog')
-setInterval(() => {
-  clients.dogstatsd.histogram('discord.users', bot.users.size)
-  clients.dogstatsd.histogram('discord.servers', bot.guilds.size)
-  clients.dogstatsd.histogram('discord.latency', bot.ping)
-}, 10 * 1000)
-console.timeEnd('datadog')
 console.timeEnd('total')

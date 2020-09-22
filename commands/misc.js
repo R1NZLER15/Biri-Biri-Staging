@@ -181,9 +181,9 @@ exports.getCommands = (clients) => {
       'execute': (msg) => {
         var avatar
         if(utils.hasMention(msg))
-          avatar = msg.mentions.members.first().user.avatarURL
+          avatar = msg.mentions.members.first().user.avatarURL()
         else
-          avatar = msg.author.avatarURL
+          avatar = msg.author.avatarURL()
         if(utils.isEmpty(avatar)) {
           msg.channel.send(new message.BaseMessage(msg).setTitle('Usuario sin avatar'));
         } else {
@@ -196,7 +196,7 @@ exports.getCommands = (clients) => {
       'name': 'birb',
       'image': async () => {
         let params = {
-          'url': 'https://random.birb.pw/tweet.json/',
+          'url': 'https://random.birb.pw/tweet.json',
           'json': true
         }
         let response = await clients.request(params)

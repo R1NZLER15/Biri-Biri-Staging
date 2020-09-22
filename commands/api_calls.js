@@ -191,8 +191,8 @@ exports.getCommands = (clients) => {
     
     // Validations
     if(!searchTerm){
-       msg.delete(3000);
-       msg.channel.send("Dame algo para buscar, pendejo").then(msg =>{msg.delete(4000)});
+       msg.delete({timeout: 3000});
+       msg.channel.send("Dame algo para buscar, pendejo").then(msg =>{msg.delete({timeout: 4000})});
        return
     } 
     // Apikey and URL for search of a movie
@@ -211,8 +211,8 @@ exports.getCommands = (clients) => {
     // Validation of response
 
     if(info.Similar.Info[0].Type === "unknown"){
-      msg.delete(3000);
-      msg.channel.send("No pude encontrar nada con eso :(").then(msg =>{msg.delete(4000)});
+      msg.delete({timeout: 3000});
+      msg.channel.send("No pude encontrar nada con eso :(").then(msg =>{msg.delete({timeout: 4000})});
       return
     }
     

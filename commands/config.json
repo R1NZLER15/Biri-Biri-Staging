@@ -21,31 +21,6 @@
          "holo": "**%(author)s** te está alimentando **%(mention)s**"
       }
    },
-   "cuteapi":{
-      "types": [
-         {"name": "cry", "title": "%(author)s esta llorando"},
-         {"name": "pinch", "title": "%(author)s te esta pelliscando"},
-         {"name": "poke", "title": "%(author)s te esta tocando"},
-         {"name": "highfive", "title": "%(author)s quiere que le des cinco"},
-         {"name": "nani", "title": "Nani!"},
-         {"name": "punch", "title": "%(author)s te dio un golpe"},
-         {"name": "hug", "title": "%(author)s se siente abrazable"},
-         {"name": "nom", "title": "%(author)s se siente con hambre"},
-         {"name": "woop", "title": "%(author)s se siente mordelon"},
-         {"name": "cuddle", "title": "%(author)s te esta abrazando"},
-         {"name": "tickle", "title": "%(author)s te esta haciendo cosquillas"},
-         {"name": "slap", "title": "%(author)s te esta cacheteando"},
-         {"name": "smug", "title": "%(author)s esta engreido"},
-         {"name": "sleep", "title": "%(author)s se esta durmiendo"},
-         {"name": "pat", "title": "%(author)s te esta dando una palmadita"},
-         {"name": "lick", "title": "%(author)s te esta lamiendo"},
-         {"name": "kiss", "title": "%(author)s esta besando"},
-         {"name": "neko", "title": "%(author)s se siente un nekito kawaii uwu"},
-         {"name": "dancing", "title": "%(author)s esta bailando"},
-         {"name": "meme", "title": "%(author)s esta memeando"},
-         {"name": "loli", "title": "%(author)s ha enviado una loli"}
-      ]
-   },
   "dab": {
     "images": [
       "https://cdn.weeb.sh/images/S1TQsg1c-.jpeg",
